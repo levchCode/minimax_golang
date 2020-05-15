@@ -108,7 +108,7 @@ func equals3(a string, b string, c string) bool {
 
 func checkWin() string {
 
-	winner := ""
+	winner := " "
 
 	for i, _ := range board {
 		if equals3(board[i][0], board[i][1], board[i][2]) {
@@ -162,7 +162,7 @@ func main() {
 		turns++
 		winner = checkWin()
 
-		if winner != "" {
+		if winner != " " {
 			break
 		}
 
@@ -171,9 +171,11 @@ func main() {
 		turns++
 		winner = checkWin()
 
-		if winner != "" {
+		if winner != " " {
 			break
 		}
 	}
-	fmt.Println(winner)
+	fmt.Println("Победил ", winner)
+	reader := bufio.NewReader(os.Stdin)
+	reader.ReadString('\n')
 }
